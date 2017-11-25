@@ -48,7 +48,13 @@
                 v-bind:todo="item">
               </todo-item>
             </ol>
-          </div>
+        </div>
+        <div id="example">
+            <p>Original message: "{{ message }}"</p>
+            <p>Computed reversed message: "{{ reversedMessage }}"</p>
+        </div>
+        
+          
          <ol>
             <!-- Create an instance of the todo-item component -->
             <todo-item></todo-item>
@@ -115,6 +121,19 @@
                   ]
                 }
               })
+            var vm = new Vue({
+                el: '#example',
+                data: {
+                    message: 'Hello'
+                },
+                computed: {
+                    // a computed getter
+                    reversedMessage: function () {
+                    // `this` points to the vm instance
+                    return this.message.split('').reverse().join('')
+                    }
+                }
+            })
         </script>
     </body>
    
