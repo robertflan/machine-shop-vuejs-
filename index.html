@@ -63,6 +63,19 @@
             <p>{{ answer }}</p>
         </div>
         <div v-bind:class="classObject"></div>
+        <ul id="example-2">
+            <li v-for="(item, index) in items">
+              {{ parentMessage }} - {{ index }} - {{ item.message }}
+            </li>
+          </ul>
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username" key="username-input">
+          </template>
+          <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address" key="email-input">
+          </template>
          <ol>
             <!-- Create an instance of the todo-item component -->
             <todo-item></todo-item>
@@ -205,6 +218,16 @@
             )
           }
         })
+        var example2 = new Vue({
+            el: '#example-2',
+            data: {
+                parentMessage: 'Parent',
+                items: [
+                { message: 'Foo' },
+                { message: 'Bar' }
+                ]
+            }
+            })
         
         </script>
     </body>
