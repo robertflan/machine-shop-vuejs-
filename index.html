@@ -63,9 +63,10 @@
             <p>{{ answer }}</p>
         </div>
         <div v-bind:class="classObject"></div>
-        <ul id="example-2">
-            <li v-for="(item, index) in items">
-              {{ parentMessage }} - {{ index }} - {{ item.message }}
+        
+        <ul id="v-for-object" class="demo">
+            <li v-for="(value, key) in object">
+                {{ key }}: {{ value }}
             </li>
           </ul>
         <template v-if="loginType === 'username'">
@@ -228,6 +229,16 @@
                 ]
             }
             })
+            new Vue({
+                el: '#v-for-object',
+                data: {
+                    object: {
+                    firstName: 'John',
+                    lastName: 'Doe',
+                    age: 30
+                    }
+                }
+                })
         
         </script>
     </body>
