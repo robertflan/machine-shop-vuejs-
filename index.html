@@ -79,7 +79,7 @@
             <button v-on:click="counter += 1">Add 1</button>
             <p>The button above has been clicked {{ counter }} times.</p>
           </div>
-          <div id="example-2">
+          <div id="example-al">
             <!-- `greet` is the name of a method defined below -->
             <button v-on:click="greet">Greet</button>
           </div>
@@ -187,6 +187,23 @@
                     }
                 }
                 })
+            var example2 = new Vue({
+                el: '#example-al',
+                    data: {
+                        name: 'Vue.js'
+                    },
+                    // define methods under the `methods` object
+                    methods: {
+                        greet: function (event) {
+                        // `this` inside methods points to the Vue instance
+                        alert('Hello ' + this.name + '!')
+                        // `event` is the native DOM event
+                        if (event) {
+                            alert(event.target.tagName)
+                        }
+                        }
+                    }
+                })
         </script>
         <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
@@ -260,24 +277,8 @@
                         counter: 0
                     }
                     })
-                    var example2 = new Vue({
-        el: '#example-2',
-            data: {
-                name: 'Vue.js'
-            },
-            // define methods under the `methods` object
-            methods: {
-                greet: function (event) {
-                // `this` inside methods points to the Vue instance
-                alert('Hello ' + this.name + '!')
-                // `event` is the native DOM event
-                if (event) {
-                    alert(event.target.tagName)
-                }
-                }
-            }
-        })
-        example2.greet()
+       
+        
         </script>
     </body>
    
