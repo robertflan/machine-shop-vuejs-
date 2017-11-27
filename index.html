@@ -69,6 +69,18 @@
                 {{ key }}: {{ value }}
             </li>
           </ul>
+          <div v-if="Math.random() > 0.5">
+            Now you see me
+          </div>
+          <div v-else>
+            Now you don't
+          </div>
+          <div id="example-1">
+            <button v-on:click="counter += 1">Add 1</button>
+            <p>The button above has been clicked {{ counter }} times.</p>
+          </div>
+          
+          
         <template v-if="loginType === 'username'">
             <label>Username</label>
             <input placeholder="Enter your username" key="username-input">
@@ -229,7 +241,7 @@
                 ]
             }
             })
-            new Vue({
+        new Vue({
                 el: '#v-for-object',
                 data: {
                     object: {
@@ -239,6 +251,12 @@
                     }
                 }
                 })
+                var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    counter: 0
+  }
+})
         
         </script>
     </body>
