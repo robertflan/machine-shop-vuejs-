@@ -83,6 +83,10 @@
             <!-- `greet` is the name of a method defined below -->
             <button v-on:click="greet">Greet</button>
           </div>
+          <div id="example-3">
+                <button v-on:click="say('hi')">Say hi</button>
+                <button v-on:click="say('what')">Say what</button>
+          </div>
           
         <template v-if="loginType === 'username'">
             <label>Username</label>
@@ -252,15 +256,15 @@
           }
         })
         var example2 = new Vue({
-            el: '#example-2',
-            data: {
-                parentMessage: 'Parent',
-                items: [
-                { message: 'Foo' },
-                { message: 'Bar' }
-                ]
-            }
-            })
+                el: '#example-2',
+                data: {
+                    parentMessage: 'Parent',
+                    items: [
+                    { message: 'Foo' },
+                    { message: 'Bar' }
+                    ]
+                }
+                })
         new Vue({
                 el: '#v-for-object',
                 data: {
@@ -277,7 +281,14 @@
                         counter: 0
                     }
                     })
-       
+        new Vue({
+                el: '#example-3',
+                methods: {
+                    say: function (message) {
+                    alert(message)
+                    }
+                }
+                })
         
         </script>
     </body>
