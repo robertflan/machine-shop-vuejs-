@@ -89,10 +89,12 @@
                 <button v-on:click="warn('Form cannot be submitted yet.', $event)">
                         Submit
                 </button>
-            <input v-on:keyup.enter="submit">
-          
+            <input v-on:keyup.delete="submit">
+            <input v-model="message" placeholder="edit me">
+            <p>Message is: {{ message }}</p>
+            
           </div>
-          
+         
         <template v-if="loginType === 'username'">
             <label>Username</label>
             <input placeholder="Enter your username" key="username-input">
@@ -288,6 +290,9 @@
                     })
         new Vue({
                 el: '#example-3',
+                data:{
+                    message:""
+                },
                 methods: {
                     say: function (message) {
                     alert(message)
