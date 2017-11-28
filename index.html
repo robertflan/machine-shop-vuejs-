@@ -86,6 +86,11 @@
           <div id="example-3">
                 <button v-on:click="say('hi')">Say hi</button>
                 <button v-on:click="say('what')">Say what</button>
+                <button v-on:click="warn('Form cannot be submitted yet.', $event)">
+                        Submit
+                </button>
+            <input v-on:keyup.enter="submit">
+          
           </div>
           
         <template v-if="loginType === 'username'">
@@ -286,7 +291,15 @@
                 methods: {
                     say: function (message) {
                     alert(message)
-                    }
+                    },
+                    warn: function (message, event) {
+                        // now we have access to the native event
+                        if (event) event.preventDefault()
+                        alert(message)
+                    },
+                    submit: function () {
+                    alert('submit')
+                    },
                 }
                 })
         
